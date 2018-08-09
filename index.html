@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todoApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Angular ToDo List</title>
+    <link href="style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+
+    <section id="list" ng-controller="todoController as something">
+        <h1>TODO List</h1>
+        <h2>A place to store the things you have to do!</h2>
+        <p ng-class="{'completed' : toggle}" ng-repeat="task in something.list">
+            <button  ng-click="toggle = !toggle" ng-class="{'completed' : toggle}">Complete</button>
+            {{task.task}}<!--: {{task.completed}}-->
+        </p>
+    </section>
+
+
+    
+
+    <script src="https://code.angularjs.org/1.6.5/angular.js"></script>
+    <script src="todoApp.js"></script>
+    <script src="TodoController.js"></script>
+</body>
+</html>
