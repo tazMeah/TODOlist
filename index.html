@@ -5,24 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Angular ToDo List</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 
     <section id="list" ng-controller="todoController as something">
-        <h1>TODO List</h1>
-        <h2>A place to store the things you have to do!</h2>
-        <p ng-class="{'completed' : toggle}" ng-repeat="task in something.list">
-            <button  ng-click="toggle = !toggle" ng-class="{'completed' : toggle}">Complete</button>
-            {{task.task}}<!--: {{task.completed}}-->
-        </p>
+        <header>
+            <h1>TODO List</h1>
+            <h2>A place to store the things you have to do!</h2>
+        </header>
+        
+        <form>
+            <input type="text" placeholder="Filter your to-dos">
+            <ol>
+                <li ng-class="{'completed': task.completed === true}" ng-repeat="task in something.list track by $index">
+                    <span>
+                        <button ng-click="something.finishedTask($index)" ng-if="task.completed === false" class="done">Complete</button>
+                        {{task.task}}
+                    </span>
+                    <i class="material-icons">clear</i>
+                    
+                    
+                </li>
+
+
+                
+                <!-- <li ng-repeat="task in something.list">
+                    <span>
+                        <button ng-click="">words</button>
+                        {{task.task}}
+                    </span>
+                    <i class="material-icons">clear</i>
+                </li> -->
+            </ol>
+            
+            <input placeholder="Add your to-do">
+            <button id="add">Add</button>
+        </form>
+        
     </section>
 
 
-    
+      
 
     <script src="https://code.angularjs.org/1.6.5/angular.js"></script>
     <script src="todoApp.js"></script>
     <script src="TodoController.js"></script>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+    $(document).ready(function(){
+
+        $("body").on("mouseover", "li", function(e){
+            $(e.target).children("i").css("color", "red");
+            $("body").on("mouseleave", "li",function(e){
+            $(e.target).children("i").css("color", "initial")
+            })
+        })
+    })
+    </script> -->
 </body>
 </html>
