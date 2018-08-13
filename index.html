@@ -22,9 +22,9 @@
         <form>
             <input type="text" placeholder="Filter your to-dos" data-ng-model="todotext">
             <ol>
-                <li data-ng-class="{'completed': task.completed === true}" data-ng-repeat="task in something.list |filter:todotext track by $index">
+                <li  data-ng-class="{'completed': task.completed === true}" data-ng-repeat="task in something.list |filter:todotext track by $index">
                     <span>
-                        <button data-ng-click="something.completeTask($index)" data-ng-if="task.completed === false" class="done">Complete</button>
+                        <button type="button" ng-click="something.completeTask($index)" data-ng-if="task.completed === false" class="done">Complete</button>
                         {{task.task}}
                     </span>
                     <i class="material-icons" ng-click="something.removeTask($index)">clear</i>
@@ -44,7 +44,7 @@
             </ol>
             
             <input placeholder="Add your to-do" ng-model="newTask" id="newTodo" >
-            <button id="add" ng-click="something.addTask(newTask)">Add</button>
+            <button type="button" id="add" ng-click="something.addTask(newTask)">Add</button>
         </form>
         
     </section>
