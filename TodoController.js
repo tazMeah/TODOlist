@@ -26,7 +26,7 @@ function todoController(){
         
     ];
 
-    vm.finishedTask = function(index){
+    vm.completeTask = function(index){
         vm.list[index].completed = true;
 
     } 
@@ -37,6 +37,11 @@ function todoController(){
         completed: false
         });
 
+    }
+
+    vm.removeTask = function ($index) {
+        console.log(`${$index} You ARE the weakest link.`);
+        vm.list.splice($index,1);
     }
 }
 

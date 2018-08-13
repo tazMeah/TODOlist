@@ -24,10 +24,10 @@
             <ol>
                 <li data-ng-class="{'completed': task.completed === true}" data-ng-repeat="task in something.list |filter:todotext track by $index">
                     <span>
-                        <button data-ng-click="something.finishedTask($index)" data-ng-if="task.completed === false" class="done">Complete</button>
+                        <button data-ng-click="something.completeTask($index)" data-ng-if="task.completed === false" class="done">Complete</button>
                         {{task.task}}
                     </span>
-                    <i class="material-icons">clear</i>
+                    <i class="material-icons" ng-click="something.removeTask($index)">clear</i>
                     
                     
                 </li>
