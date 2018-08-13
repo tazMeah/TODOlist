@@ -27,10 +27,17 @@ function todoController(){
     ];
 
     vm.finishedTask = function(index){
-        console.log("test");
         vm.list[index].completed = true;
 
     } 
+
+    vm.addTask = function (newTask) {
+        vm.list.push({
+        task:newTask,
+        completed: false
+        });
+
+    }
 }
 
 angular

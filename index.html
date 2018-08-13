@@ -43,8 +43,8 @@
                 </li> -->
             </ol>
             
-            <input placeholder="Add your to-do">
-            <button id="add">Add</button>
+            <input placeholder="Add your to-do" ng-model="newTask">
+            <button id="add" ng-click="something.addTask(newTask)">Add</button>
         </form>
         
     </section>
