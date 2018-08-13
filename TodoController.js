@@ -32,11 +32,14 @@ function todoController(){
     } 
 
     vm.addTask = function (newTask) {
-        vm.list.push({
-        task:newTask,
-        completed: false
-        });
-
+        if (document.querySelector("#newTodo").value){
+            vm.list.push({
+            task:newTask,
+            completed: false
+            });
+            /* clear the input upon Add*/
+            document.querySelector("#newTodo").value = "";
+        }
     }
 
     vm.removeTask = function ($index) {
@@ -48,3 +51,6 @@ function todoController(){
 angular
     .module("todoApp")
     .controller("todoController", todoController)
+
+
+   

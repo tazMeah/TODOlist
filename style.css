@@ -69,6 +69,7 @@ input {
     border: 1px solid #bbb;
     background: #eee;
     background: white;
+    font-size: 18px;
 }
 
 .done { /* complete buttons */
@@ -102,3 +103,4 @@ i {
 i:hover {
      color: #ff0000;  
 }
+
